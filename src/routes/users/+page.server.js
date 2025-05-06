@@ -1,0 +1,86 @@
+export function load() {
+    return {
+        users: [
+            {
+                id: 1,
+                firstName: "John",
+                lastName: "Doe",
+                birthday: "2000-07-13",
+                role: "buyer",
+                avatar: "/images/user_placeholder.png"
+            },
+            {
+                id: 2,
+                firstName: "Anna",
+                lastName: "Meier",
+                birthday: "1992-03-22",
+                role: "seller",
+                avatar: "/images/user_placeholder.png"
+            },
+            {
+                id: 3,
+                firstName: "Luca",
+                lastName: "Brunner",
+                birthday: "1988-11-05",
+                role: "buyer",
+                avatar: "/images/user_placeholder.png"
+            },
+            {
+                id: 4,
+                firstName: "Sophie",
+                lastName: "Keller",
+                birthday: "1995-08-17",
+                role: "seller",
+                avatar: "/images/user_placeholder.png"
+            },
+            {
+                id: 5,
+                firstName: "David",
+                lastName: "Weber",
+                birthday: "1990-01-10",
+                role: "buyer",
+                avatar: "/images/user_placeholder.png"
+            },
+            {
+                id: 6,
+                firstName: "Nora",
+                lastName: "Baumann",
+                birthday: "1985-05-03",
+                role: "seller",
+                avatar: "/images/user_placeholder.png"
+            },
+            {
+                id: 7,
+                firstName: "Tim",
+                lastName: "Müller",
+                birthday: "1998-09-21",
+                role: "buyer",
+                avatar: "/images/user_placeholder.png"
+            },
+            {
+                id: 8,
+                firstName: "Lea",
+                lastName: "Fischer",
+                birthday: "1993-12-14",
+                role: "seller",
+                avatar: "/images/user_placeholder.png"
+            },
+            {
+                id: 9,
+                firstName: "Fabian",
+                lastName: "Zimmermann",
+                birthday: "1987-06-30",
+                role: "buyer",
+                avatar: "/images/user_placeholder.png"
+            },
+            {
+                id: 10,
+                firstName: "Julia",
+                lastName: "Hartmann",
+                birthday: "1991-04-18",
+                role: "seller",
+                avatar: "/images/user_placeholder.png"
+            }
+        ]
+    };
+}
