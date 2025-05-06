@@ -37,14 +37,23 @@
                         </form>
                     </td>
                     <td class="text-center">
-                        <form>
-                            <button class="btn btn-danger" data-bs-toggle="tooltip" title="Löschen" aria-label="Löschen">
-                                <i class="bi bi-trash"></i>
-                            </button>
+                        <form method="POST" action="?/delete">
+                            <input type="hidden" name="id" value="1" />
+                            <button class="btn btn-danger">X</button>
                         </form>
+<!--                        <form method="POST" action="?/delete">-->
+<!--                            <input type="hidden" name="id" value={user._id} />-->
+<!--                            <button class="btn btn-danger" data-bs-toggle="tooltip" title="Löschen" aria-label="Löschen">-->
+<!--                                <i class="bi bi-trash"></i>-->
+<!--                            </button>-->
+<!--                        </form>-->
                     </td>
                 </tr>
             {/each}
         </tbody>
     </table>
 </div>
+<form method="POST" action="?/delete">
+    <input type="hidden" name="id" value="1" />
+    <button class="btn btn-danger">X</button>
+</form>

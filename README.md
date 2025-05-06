@@ -7,3 +7,7 @@ vite-version: ^6.2.6
 
 Der Runes-Mode wurde explizit in der Datei `svelte.config.js` unter den `compilerOptions` aktiviert.
 
+Zusätzlich installiert wurde:
+
+`npm install mongodb`
+
