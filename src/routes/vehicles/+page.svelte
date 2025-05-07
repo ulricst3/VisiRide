@@ -5,7 +5,7 @@
 
 <h1>Fahrzeuge</h1>
 
-<div>
+<div class="page-size">
     <div class="row row-cols-4">
         {#each data.vehicles as vehicle}
             <div class="col mb-4 px-2">

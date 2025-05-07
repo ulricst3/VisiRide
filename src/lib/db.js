@@ -116,6 +116,55 @@ async function deleteUser(id) {
   return null;
 }
 
+//////////////////////////////////////////
+// Vehicle Functions
+//////////////////////////////////////////
+
+// Get all vehicles
+async function getVehicles() {
+  console.log(">>> db.js -> getVehicles")
+  let vehicles = [];
+  try {
+    const collection = db.collection("Vehicle");
+
+    // You can specify a query/filter here
+    // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
+    const query = {};
+
+    // Get all objects that match the query
+    vehicles = await collection.find(query).toArray();
+    vehicles.forEach((vehicle) => {
+      vehicle._id = vehicle._id.toString(); // convert ObjectId to String
+    });
+  } catch (error) {
+    console.log(error);
+    // TODO: errorhandling
+  }
+  return vehicles;
+}
+
+// Get vehicle by id
+async function getVehicle(id) {
+  console.log(">>> db.js -> getUser")
+  let user = null;
+  try {
+    const collection = db.collection("Vehicle");
+    const query = { _id: new ObjectId(id) }; // filter by id
+    user = await collection.findOne(query);
+
+    if (!user) {
+      console.log("No user with id " + id);
+      // TODO: errorhandling
+    } else {
+      user._id = user._id.toString(); // convert ObjectId to String
+    }
+  } catch (error) {
+    // TODO: errorhandling
+    console.log(error.message);
+  }
+  return user;
+}
+
 // export all functions so that they can be used in other files
 export default {
   getUsers,
@@ -123,4 +172,6 @@ export default {
   createUser,
   updateUser,
   deleteUser,
+  getVehicles,
+  getVehicle,
 };

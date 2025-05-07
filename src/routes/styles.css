@@ -16,6 +16,7 @@ a {
     color: red;
 }
 .page-size {
-    max-height: 600px;
+    padding: 1%;
     overflow-y: auto;
+    overflow-x: hidden;
 }
