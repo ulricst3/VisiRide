@@ -3,7 +3,7 @@
 </script>
 
 <h1>Fahrzeuge</h1>
-<div style="max-height: 600px; overflow-y: auto;">
+<div class="page-size">
     {#each data.vehicles as vehicle}
         <div class="card mb-2">
             <div class="row g-0">

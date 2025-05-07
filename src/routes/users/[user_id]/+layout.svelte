@@ -8,7 +8,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/users/">Benutzer</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{page.data.user.id}</li>
+                <li class="breadcrumb-item active" aria-current="page">{page.data.user._id}</li>
             </ol>
         </nav>
     </header>

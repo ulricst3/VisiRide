@@ -12,6 +12,7 @@ const db = client.db("VisiRideDB"); // select database
 
 // Get all users
 async function getUsers() {
+  console.log(">>> db.js -> getUsers")
   let users = [];
   try {
     const collection = db.collection("User");
@@ -34,10 +35,11 @@ async function getUsers() {
 
 // Get user by id
 async function getUser(id) {
+  console.log(">>> db.js -> getUser")
   let user = null;
   try {
     const collection = db.collection("User");
-    const query = { id: Number(id) }; // filter by id
+    const query = { _id: new ObjectId(id) }; // filter by id
     user = await collection.findOne(query);
 
     if (!user) {
@@ -53,14 +55,29 @@ async function getUser(id) {
   return user;
 }
 
+// create user
+async function createUser(user) {
+  console.log(">>> db.js -> createUser")
+  try {
+    const collection = db.collection("User");
+    const result = await collection.insertOne(user);
+    return result.insertedId.toString(); // convert ObjectId to String
+  } catch (error) {
+    // TODO: errorhandling
+    console.log(error.message);
+  }
+  return null;
+}
+
 // Update user
 // returns: id of the updated user or null, if user could not be updated
 async function updateUser(user) {
+  console.log(">>> db.js -> updateUser")
   try {
-    let id = user.id;
-    delete user.id; // delete the _id from the object, because the _id cannot be updated
+    let id = user._id;
+    delete user._id; // delete the _id from the object, because the _id cannot be updated
     const collection = db.collection("User");
-    const query = { id: Number(id) }; // filter by id
+    const query = { _id: new ObjectId(id) }; // filter by id
     const result = await collection.updateOne(query, { $set: user });
 
     if (result.matchedCount === 0) {
@@ -80,9 +97,10 @@ async function updateUser(user) {
 // delete user by id
 // returns: id of the deleted user or null, if user could not be deleted
 async function deleteUser(id) {
+  console.log(">>> db.js -> deleteUser")
   try {
     const collection = db.collection("User");
-    const query = { id: Number(id) }; // filter by id
+    const query = { _id: new ObjectId(id) }; // filter by id
     const result = await collection.deleteOne(query);
 
     if (result.deletedCount === 0) {
@@ -98,36 +116,11 @@ async function deleteUser(id) {
   return null;
 }
 
-// create movie
-// Example movie object:
-/* 
-{ 
-  title: "Das Geheimnis von Altura",
-  year: 2024,
-  length: "120 Minuten"
-} 
-*/
-async function createMovie(movie) {
-  movie.poster = "/images/placeholder.jpg"; // default poster
-  movie.actors = [
-    "A", "B", "C"
-  ];
-  try {
-    const collection = db.collection("movies");
-    const result = await collection.insertOne(movie);
-    return result.insertedId.toString(); // convert ObjectId to String
-  } catch (error) {
-    // TODO: errorhandling
-    console.log(error.message);
-  }
-  return null;
-}
-
 // export all functions so that they can be used in other files
 export default {
   getUsers,
   getUser,
-  createMovie,
+  createUser,
   updateUser,
   deleteUser,
 };

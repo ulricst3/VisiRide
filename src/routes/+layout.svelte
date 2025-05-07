@@ -14,7 +14,6 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link { page.url.pathname === '/' ? 'active' : '' }" href="/">Home</a>
                         <a class="nav-item nav-link { page.url.pathname === '/users' ? 'active' : '' }" href="/users">Benutzer</a>
                         <a class="nav-item nav-link { page.url.pathname === '/vehicles' ? 'active' : '' }" href="/vehicles">Fahrzeuge</a>
                         <a class="nav-item nav-link { page.url.pathname === '/appointments' ? 'active' : '' }" href="/appointments">Besichtigungstermine</a>
@@ -28,6 +27,6 @@
             {@render children()}
         </div>
     </main>
-    <!-- Add foote if requird -->
+    <!-- Add footer if requird -->
     <!-- <footer>Footer 2025</footer>-->
 </div>

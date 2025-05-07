@@ -2,3 +2,14 @@
     width: 1%;
     white-space: nowrap
 }
+.avatar {
+    width: 300px;
+    height: 300px;
+}
+.error-text {
+    color: red;
+}
+.page-size {
+    max-height: 600px;
+    overflow-y: auto;
+}
