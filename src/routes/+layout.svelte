@@ -28,5 +28,6 @@
             {@render children()}
         </div>
     </main>
-    <footer>Footer 2025</footer>
+    <!-- Add foote if requird -->
+    <!-- <footer>Footer 2025</footer>-->
 </div>

@@ -32,25 +32,70 @@ async function getUsers() {
   return users;
 }
 
-// Get movie by id
-async function getMovie(id) {
-  let movie = null;
+// Get user by id
+async function getUser(id) {
+  let user = null;
   try {
-    const collection = db.collection("movies");
-    const query = { _id: new ObjectId(id) }; // filter by id
-    movie = await collection.findOne(query);
+    const collection = db.collection("User");
+    const query = { id: Number(id) }; // filter by id
+    user = await collection.findOne(query);
 
-    if (!movie) {
-      console.log("No movie with id " + id);
+    if (!user) {
+      console.log("No user with id " + id);
       // TODO: errorhandling
     } else {
-      movie._id = movie._id.toString(); // convert ObjectId to String
+      user._id = user._id.toString(); // convert ObjectId to String
     }
   } catch (error) {
     // TODO: errorhandling
     console.log(error.message);
   }
-  return movie;
+  return user;
+}
+
+// Update user
+// returns: id of the updated user or null, if user could not be updated
+async function updateUser(user) {
+  try {
+    let id = user.id;
+    delete user.id; // delete the _id from the object, because the _id cannot be updated
+    const collection = db.collection("User");
+    const query = { id: Number(id) }; // filter by id
+    const result = await collection.updateOne(query, { $set: user });
+
+    if (result.matchedCount === 0) {
+      console.log("No user with id " + id);
+      // TODO: errorhandling
+    } else {
+      console.log("User with id " + id + " has been updated.");
+      return id;
+    }
+  } catch (error) {
+    // TODO: errorhandling
+    console.log(error.message);
+  }
+  return null;
+}
+
+// delete user by id
+// returns: id of the deleted user or null, if user could not be deleted
+async function deleteUser(id) {
+  try {
+    const collection = db.collection("User");
+    const query = { id: Number(id) }; // filter by id
+    const result = await collection.deleteOne(query);
+
+    if (result.deletedCount === 0) {
+      console.log("No user with id " + id);
+    } else {
+      console.log("User with id " + id + " has been successfully deleted.");
+      return id;
+    }
+  } catch (error) {
+    // TODO: errorhandling
+    console.log(error.message);
+  }
+  return null;
 }
 
 // create movie
@@ -78,72 +123,11 @@ async function createMovie(movie) {
   return null;
 }
 
-// update movie
-// Example movie object:
-/* 
-{ 
-  _id: "6630e72c95e12055f661ff13",
-  title: "Das Geheimnis von Altura",
-  year: 2024,
-  length: "120 Minuten",
-  actors: [
-    "Lena Herzog",
-    "Maximilian Schröder",
-    "Sophia Neumann"
-  ],
-  poster: "/images/Altura.png",
-  watchlist: false
-} 
-*/
-// returns: id of the updated movie or null, if movie could not be updated
-async function updateMovie(movie) {
-  try {
-    let id = movie._id;
-    delete movie._id; // delete the _id from the object, because the _id cannot be updated
-    const collection = db.collection("movies");
-    const query = { _id: new ObjectId(id) }; // filter by id
-    const result = await collection.updateOne(query, { $set: movie });
-
-    if (result.matchedCount === 0) {
-      console.log("No movie with id " + id);
-      // TODO: errorhandling
-    } else {
-      console.log("Movie with id " + id + " has been updated.");
-      return id;
-    }
-  } catch (error) {
-    // TODO: errorhandling
-    console.log(error.message);
-  }
-  return null;
-}
-
-// delete movie by id
-// returns: id of the deleted movie or null, if movie could not be deleted
-async function deleteMovie(id) {
-  try {
-    const collection = db.collection("User");
-    const query = { _id: new ObjectId(id) }; // filter by id
-    const result = await collection.deleteOne(query);
-
-    if (result.deletedCount === 0) {
-      console.log("No movie with id " + id);
-    } else {
-      console.log("Movie with id " + id + " has been successfully deleted.");
-      return id;
-    }
-  } catch (error) {
-    // TODO: errorhandling
-    console.log(error.message);
-  }
-  return null;
-}
-
 // export all functions so that they can be used in other files
 export default {
   getUsers,
-  getMovie,
+  getUser,
   createMovie,
-  updateMovie,
-  deleteMovie,
+  updateUser,
+  deleteUser,
 };

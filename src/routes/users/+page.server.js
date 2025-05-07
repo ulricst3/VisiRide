@@ -9,8 +9,6 @@ export async function load() {
 export const actions = {
     delete: async ({request}) => {
         const data = await request.formData();
-        console.log("deleteme")
-        // console.log(data);
-        // await db.deleteArtist(data.get("id"));
+        await db.deleteUser(data.get("id"));
     }
 }
