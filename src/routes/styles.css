@@ -1,3 +1,9 @@
+/* global */
+a {
+    text-decoration: none;
+}
+
+/* classes */
 .narrow-th {
     width: 1%;
     white-space: nowrap

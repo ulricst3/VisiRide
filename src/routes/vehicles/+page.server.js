@@ -7,7 +7,7 @@ export function load() {
                 model: "Golf",
                 year: 2019,
                 price: 15500,
-                mileage: 78200.5,
+                mileage: 78200,
                 image: "/images/vehicle_placeholder.png"
             },
             {
@@ -16,7 +16,7 @@ export function load() {
                 model: "3 Series",
                 year: 2021,
                 price: 28500,
-                mileage: 45300.0,
+                mileage: 45300,
                 image: "/images/vehicle_placeholder.png"
             },
             {
@@ -25,7 +25,7 @@ export function load() {
                 model: "GLC",
                 year: 2020,
                 price: 36500,
-                mileage: 51200.3,
+                mileage: 51200,
                 image: "/images/vehicle_placeholder.png"
             },
             {
@@ -34,7 +34,7 @@ export function load() {
                 model: "A4",
                 year: 2018,
                 price: 22000,
-                mileage: 89300.9,
+                mileage: 89300,
                 image: "/images/vehicle_placeholder.png"
             },
             {
@@ -43,7 +43,7 @@ export function load() {
                 model: "Model 3",
                 year: 2022,
                 price: 42000,
-                mileage: 16800.0,
+                mileage: 16800,
                 image: "/images/vehicle_placeholder.png"
             },
             {
@@ -52,7 +52,7 @@ export function load() {
                 model: "Octavia",
                 year: 2017,
                 price: 13900,
-                mileage: 102300.7,
+                mileage: 102300,
                 image: "/images/vehicle_placeholder.png"
             },
             {
@@ -61,7 +61,7 @@ export function load() {
                 model: "i30",
                 year: 2020,
                 price: 17900,
-                mileage: 48700.2,
+                mileage: 48700,
                 image: "/images/vehicle_placeholder.png"
             },
             {
@@ -70,7 +70,7 @@ export function load() {
                 model: "Ceed",
                 year: 2019,
                 price: 16500,
-                mileage: 52300.1,
+                mileage: 52300,
                 image: "/images/vehicle_placeholder.png"
             },
             {
@@ -79,7 +79,7 @@ export function load() {
                 model: "308",
                 year: 2018,
                 price: 15800,
-                mileage: 74800.6,
+                mileage: 74800,
                 image: "/images/vehicle_placeholder.png"
             },
             {
@@ -88,7 +88,7 @@ export function load() {
                 model: "Megane",
                 year: 2021,
                 price: 19900,
-                mileage: 33300.0,
+                mileage: 33300,
                 image: "/images/vehicle_placeholder.png"
             }
         ]

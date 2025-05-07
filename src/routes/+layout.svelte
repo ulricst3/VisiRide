@@ -13,11 +13,11 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                        <a class="nav-item nav-link { page.url.pathname === '/users' ? 'active' : '' }" href="/users">Benutzer</a>
-                        <a class="nav-item nav-link { page.url.pathname === '/vehicles' ? 'active' : '' }" href="/vehicles">Fahrzeuge</a>
-                        <a class="nav-item nav-link { page.url.pathname === '/appointments' ? 'active' : '' }" href="/appointments">Besichtigungstermine</a>
-                    </div>
+                    <ul class="navbar-nav">
+                        <li><a class="nav-item nav-link { page.url.pathname.startsWith('/users') ? 'active' : '' }" href="/users">Benutzer</a></li>
+                        <li><a class="nav-item nav-link { page.url.pathname.startsWith('/vehicles') ? 'active' : '' }" href="/vehicles">Fahrzeuge</a></li>
+                        <li><a class="nav-item nav-link { page.url.pathname.startsWith('/appointments') ? 'active' : '' }" href="/appointments">Besichtigungstermine</a></li>
+                    </ul>
                 </div>
             </div>
         </nav>
