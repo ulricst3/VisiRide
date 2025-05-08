@@ -8,12 +8,12 @@
         <h5 class="card-title"><b><a href={"/vehicles/" + vehicle._id}>{vehicle.brand} {vehicle.model}</a></b></h5>
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item">Jahr: {vehicle.year}</li>
-        <li class="list-group-item">Preis: CHF {vehicle.price}.-</li>
-        <li class="list-group-item">Kilometerstand: {vehicle.mileage} km</li>
+        <li class="list-group-item">Preis: CHF {vehicle.price.toLocaleString('de-CH')}.-</li>
+        <li class="list-group-item">Kilometerstand: {vehicle.mileage.toLocaleString('de-CH')} km</li>
     </ul>
-    <div class="card-footer">
-        <a href="/book" class="btn btn-primary">Jetzt termin vereinbaren</a>
-    </div>
-
+    {#if vehicle.appointmentCount > 0}
+        <div class="card-footer">
+            <small class="text-muted">Wurde bereits {vehicle.appointmentCount}-mal gebucht!</small>
+        </div>
+    {/if}
 </div>
