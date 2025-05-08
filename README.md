@@ -10,4 +10,5 @@ Der Runes-Mode wurde explizit in der Datei `svelte.config.js` unter den `compile
 Zusätzlich installiert wurde:
 
 `npm install mongodb`
+`npm install dateformat`
 

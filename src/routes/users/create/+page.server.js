@@ -4,7 +4,7 @@ import {prepareUserFormResponse} from "$lib/form/Controller.js";
 export async function load({ params }) {
     return {
         user: {
-            id: "Wird bei Speicherung automatisch generiert.",
+            _id: "Wird bei Speicherung automatisch generiert.",
             avatar: "/images/user_placeholder.png"
         }
     };

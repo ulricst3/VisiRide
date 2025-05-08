@@ -4,69 +4,69 @@
     "lastName": "Doe",
     "birthday": "2000-07-13",
     "role": "buyer",
-    "avatar": "/images/user_placeholder.png"
+    "avatar": "/images/user_John-Doe.png"
   },
   {
     "firstName": "Anna",
     "lastName": "Meier",
     "birthday": "1992-03-22",
     "role": "seller",
-    "avatar": "/images/user_placeholder.png"
+    "avatar": "/images/user_Anna-Meier.png"
   },
   {
     "firstName": "Luca",
     "lastName": "Brunner",
     "birthday": "1988-11-05",
     "role": "buyer",
-    "avatar": "/images/user_placeholder.png"
+    "avatar": "/images/user_Luca-Brunner.png"
   },
   {
     "firstName": "Sophie",
     "lastName": "Keller",
     "birthday": "1995-08-17",
     "role": "seller",
-    "avatar": "/images/user_placeholder.png"
+    "avatar": "/images/user_Sophie-Keller.png"
   },
   {
     "firstName": "David",
     "lastName": "Weber",
     "birthday": "1990-01-10",
     "role": "buyer",
-    "avatar": "/images/user_placeholder.png"
+    "avatar": "/images/user_David-Weber.png"
   },
   {
     "firstName": "Nora",
     "lastName": "Baumann",
     "birthday": "1985-05-03",
     "role": "seller",
-    "avatar": "/images/user_placeholder.png"
+    "avatar": "/images/user_Nora-Baumann.png"
   },
   {
     "firstName": "Tim",
     "lastName": "Müller",
     "birthday": "1998-09-21",
     "role": "buyer",
-    "avatar": "/images/user_placeholder.png"
+    "avatar": "/images/user_Tim-Müller.png"
   },
   {
     "firstName": "Lea",
     "lastName": "Fischer",
     "birthday": "1993-12-14",
     "role": "seller",
-    "avatar": "/images/user_placeholder.png"
+    "avatar": "/images/user_Lea-Fischer.png"
   },
   {
     "firstName": "Fabian",
     "lastName": "Zimmermann",
     "birthday": "1987-06-30",
     "role": "buyer",
-    "avatar": "/images/user_placeholder.png"
+    "avatar": "/images/user_Fabian-Zimmermann.png"
   },
   {
     "firstName": "Julia",
     "lastName": "Hartmann",
     "birthday": "1991-04-18",
     "role": "seller",
-    "avatar": "/images/user_placeholder.png"
+    "avatar": "/images/user_Julia-Hartmann.png"
   }
 ]

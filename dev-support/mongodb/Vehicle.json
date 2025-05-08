@@ -5,95 +5,95 @@
     "year": "2019-11-01",
     "price": 15500,
     "mileage": 78200,
-    "gearbox": "automatic",
-    "fuelType": "Gasoline",
+    "gearbox": "Automatisch",
+    "fuelType": "Benzin",
     "horsepower": 415,
-    "color": "white",
-    "image": "/images/vehicle_placeholder.png"
+    "color": "White",
+    "image": "/images/vehicle_VW-Golf.png"
   },
   {
     "brand": "BMW",
-    "model": "3 Series",
-    "year": "2021-01-01",
+    "model": "M235i",
+    "year": "2015-05-01",
     "price": 28500,
     "mileage": 45300,
-    "gearbox": "automatic",
-    "fuelType": "Gasoline",
+    "gearbox": "Automatisch",
+    "fuelType": "Benzin",
     "horsepower": 255,
-    "color": "midnight black",
-    "image": "/images/vehicle_placeholder.png"
+    "color": "Ocean Blue",
+    "image": "/images/vehicle_BMW-M235i.png"
   },
   {
     "brand": "Mercedes-Benz",
     "model": "GLC",
-    "year": "2020-01-01",
+    "year": "2020-03-01",
     "price": 36500,
     "mileage": 51200,
-    "gearbox": "automatic",
+    "gearbox": "Automatisch",
     "fuelType": "Diesel",
     "horsepower": 245,
-    "color": "metallic silver",
-    "image": "/images/vehicle_placeholder.png"
+    "color": "Metallic Silver",
+    "image": "/images/vehicle_MB-GLC.png"
   },
   {
     "brand": "Audi",
     "model": "A4",
-    "year": "2018-01-01",
+    "year": "2018-07-01",
     "price": 22000,
     "mileage": 89300,
-    "gearbox": "manual",
-    "fuelType": "Gasoline",
+    "gearbox": "Manuell",
+    "fuelType": "Benzin",
     "horsepower": 190,
-    "color": "deep red",
-    "image": "/images/vehicle_placeholder.png"
+    "color": "Deep Red",
+    "image": "/images/vehicle_Audi-A4.png"
   },
   {
     "brand": "Tesla",
     "model": "Model 3",
-    "year": "2022-01-01",
+    "year": "2022-04-01",
     "price": 42000,
     "mileage": 16800,
-    "gearbox": "automatic",
-    "fuelType": "Electric",
+    "gearbox": "Automatisch",
+    "fuelType": "Elektrisch",
     "horsepower": 283,
-    "color": "white",
-    "image": "/images/vehicle_placeholder.png"
+    "color": "White",
+    "image": "/images/vehicle_Tesla-Model3.png"
   },
   {
     "brand": "Skoda",
     "model": "Octavia",
-    "year": "2017-01-01",
+    "year": "2017-12-01",
     "price": 13900,
     "mileage": 102300,
-    "gearbox": "manual",
-    "fuelType": "Diesel",
+    "gearbox": "Manuell",
+    "fuelType": "Benzin",
     "horsepower": 150,
-    "color": "forest green",
-    "image": "/images/vehicle_placeholder.png"
+    "color": "Forest Green",
+    "image": "/images/vehicle_Skoda-Octavia.png"
   },
   {
     "brand": "Hyundai",
     "model": "i30",
-    "year": "2020-01-01",
+    "year": "2020-09-01",
     "price": 17900,
     "mileage": 48700,
-    "gearbox": "manual",
-    "fuelType": "Gasoline",
+    "gearbox": "Manuell",
+    "fuelType": "Benzin",
     "horsepower": 120,
-    "color": "sky blue",
-    "image": "/images/vehicle_placeholder.png"
+    "color": "Sky Blue",
+    "image": "/images/vehicle_Hyundai-i30.png"
   },
   {
     "brand": "Kia",
     "model": "Ceed",
-    "year": "2019-01-01",
+    "year": "2019-02-01",
     "price": 16500,
     "mileage": 52300,
-    "gearbox": "automatic",
-    "fuelType": "Gasoline",
+    "gearbox": "Automatisch",
+    "fuelType": "Benzin",
     "horsepower": 140,
-    "color": "pearl white",
-    "image": "/images/vehicle_placeholder.png"
+    "color": "Pearl White",
+    "image": "/images/vehicle_Kia-Ceed.png"
   },
   {
     "brand": "Peugeot",
@@ -101,22 +101,22 @@
     "year": "2018-01-01",
     "price": 15800,
     "mileage": 74800,
-    "gearbox": "manual",
+    "gearbox": "Manuell",
     "fuelType": "Diesel",
     "horsepower": 130,
-    "color": "charcoal grey",
-    "image": "/images/vehicle_placeholder.png"
+    "color": "Charcoal Grey",
+    "image": "/images/vehicle_Peugeot-308.png"
   },
   {
     "brand": "Renault",
     "model": "Megane",
-    "year": "2021-01-01",
+    "year": "2021-08-01",
     "price": 19900,
     "mileage": 33300,
-    "gearbox": "automatic",
-    "fuelType": "Gasoline",
+    "gearbox": "Automatisch",
+    "fuelType": "Benzin",
     "horsepower": 115,
-    "color": "sunset orange",
-    "image": "/images/vehicle_placeholder.png"
+    "color": "Sunset Orange",
+    "image": "/images/vehicle_Renault-Megane.png"
   }
 ]

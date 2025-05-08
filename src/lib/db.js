@@ -19,10 +19,30 @@ async function getUsers() {
 
     // You can specify a query/filter here
     // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
-    const query = {};
+    // Aggregation pipeline designed in MongoDB Compass
+    const query = [
+      {
+        '$lookup': {
+          'from': 'Appointment',
+          'localField': '_id',
+          'foreignField': 'userId',
+          'as': 'appointments'
+        }
+      }, {
+        '$addFields': {
+          'appointmentCount': {
+            '$size': '$appointments'
+          }
+        }
+      }, {
+        '$project': {
+          'appointments': 0
+        }
+      }
+    ];
 
     // Get all objects that match the query
-    users = await collection.find(query).toArray();
+    users = await collection.aggregate(query).toArray();
     users.forEach((user) => {
       user._id = user._id.toString(); // convert ObjectId to String
     });
@@ -129,10 +149,30 @@ async function getVehicles() {
 
     // You can specify a query/filter here
     // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
-    const query = {};
+    // Aggregation pipeline designed in MongoDB Compass
+    const query = [
+      {
+        '$lookup': {
+          'from': 'Appointment',
+          'localField': '_id',
+          'foreignField': 'vehicleId',
+          'as': 'appointments'
+        }
+      }, {
+        '$addFields': {
+          'appointmentCount': {
+            '$size': '$appointments'
+          }
+        }
+      }, {
+        '$project': {
+          'appointments': 0
+        }
+      }
+    ];
 
     // Get all objects that match the query
-    vehicles = await collection.find(query).toArray();
+    vehicles = await collection.aggregate(query).toArray();
     vehicles.forEach((vehicle) => {
       vehicle._id = vehicle._id.toString(); // convert ObjectId to String
     });
@@ -145,24 +185,110 @@ async function getVehicles() {
 
 // Get vehicle by id
 async function getVehicle(id) {
-  console.log(">>> db.js -> getUser")
-  let user = null;
+  console.log(">>> db.js -> getVehicle")
+  let vehicle = null;
   try {
     const collection = db.collection("Vehicle");
     const query = { _id: new ObjectId(id) }; // filter by id
-    user = await collection.findOne(query);
+    vehicle = await collection.findOne(query);
 
-    if (!user) {
-      console.log("No user with id " + id);
+    if (!vehicle) {
+      console.log("No vehicle with id " + id);
       // TODO: errorhandling
     } else {
-      user._id = user._id.toString(); // convert ObjectId to String
+      vehicle._id = vehicle._id.toString(); // convert ObjectId to String
     }
   } catch (error) {
     // TODO: errorhandling
     console.log(error.message);
   }
-  return user;
+  return vehicle;
+}
+
+//////////////////////////////////////////
+// Appointment Functions
+//////////////////////////////////////////
+
+// Get all appointments
+async function getAppointments() {
+  console.log(">>> db.js -> getAppointments")
+  let appointments = [];
+  try {
+    const collection = db.collection("Appointment");
+
+    // You can specify a query/filter here
+    // See https://www.mongodb.com/docs/drivers/node/current/fundamentals/crud/query-document/
+    // Aggregation pipeline designed in MongoDB Compass
+    const query = [
+      {
+        '$lookup': {
+          'from': 'User',
+          'localField': 'userId',
+          'foreignField': '_id',
+          'as': 'user'
+        }
+      }, {
+        '$unwind': {
+          'path': '$user'
+        }
+      }, {
+        '$lookup': {
+          'from': 'Vehicle',
+          'localField': 'vehicleId',
+          'foreignField': '_id',
+          'as': 'vehicle'
+        }
+      }, {
+        '$unwind': {
+          'path': '$vehicle'
+        }
+      }
+    ];
+
+    // Get all objects that match the query
+    appointments = await collection.aggregate(query).toArray();
+  } catch (error) {
+    console.log(error);
+    // TODO: errorhandling
+  }
+  // Parses all ObjectIds (even in nested objects such as vehicle/user to string)
+  return JSON.parse(JSON.stringify(appointments));
+}
+
+// create appointment
+async function createAppointment(appointment) {
+  console.log(">>> db.js -> createAppointment")
+  try {
+    const collection = db.collection("Appointment");
+    const result = await collection.insertOne(appointment);
+    return result.insertedId.toString(); // convert ObjectId to String
+  } catch (error) {
+    // TODO: errorhandling
+    console.log(error.message);
+  }
+  return null;
+}
+
+// delete appointment by id
+// returns: id of the deleted appointment or null, if appointment could not be deleted
+async function deleteAppointment(id) {
+  console.log(">>> db.js -> deleteAppointment")
+  try {
+    const collection = db.collection("Appointment");
+    const query = { _id: new ObjectId(id) }; // filter by id
+    const result = await collection.deleteOne(query);
+
+    if (result.deletedCount === 0) {
+      console.log("No appointment with id " + id);
+    } else {
+      console.log("Appointment with id " + id + " has been successfully deleted.");
+      return id;
+    }
+  } catch (error) {
+    // TODO: errorhandling
+    console.log(error.message);
+  }
+  return null;
 }
 
 // export all functions so that they can be used in other files
@@ -174,4 +300,7 @@ export default {
   deleteUser,
   getVehicles,
   getVehicle,
+  getAppointments,
+  createAppointment,
+  deleteAppointment
 };

@@ -3,6 +3,5 @@
     let { data, form } = $props();
     let isCreation = true;
 </script>
-
 <h1>Neuen Benutzer erstellen</h1>
 <UserForm {data} {form} {isCreation}/>

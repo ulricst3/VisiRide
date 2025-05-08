@@ -60,7 +60,7 @@
         <label for="inputBirthday" class="form-label">Geburtstag</label>
         <input name="birthday" type="date" class="form-control" id="inputBirthday" bind:value={user.birthday} required>
         {#if form?.validationErrors.has("birthday")}
-            <p class="error-text">Bitte gib ein gültiges Geburtsdatum an</p>
+            <p class="error-text">Bitte gib ein gültiges Geburtsdatum in der Vergangenheit an</p>
         {/if}
     </div>
 

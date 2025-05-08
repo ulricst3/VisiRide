@@ -6,7 +6,7 @@ export function validateUserForm(user) {
     if (user.lastName.length < 3) {
         validationErrors.set("lastName", user.lastName);
     }
-    if (user.birthday.length === 0) {
+    if (user.birthday.length === 0 || new Date(user.birthday) >= new Date()) {
         validationErrors.set("birthday", user.birthday);
     }
     return validationErrors;
