@@ -3,8 +3,8 @@
     import { page } from "$app/state";
     let { children } = $props();
 </script>
-
-<div class="container mt-3">
+<!-- Not using class="container mt-3" since navbar jumps around -->
+<div style="margin: 1rem 5rem 0rem 5rem">
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
@@ -19,11 +19,15 @@
                         <li><a class="nav-item nav-link { page.url.pathname.startsWith('/appointments') ? 'active' : '' }" href="/appointments">Besichtigungstermine</a></li>
                     </ul>
                 </div>
+                <form class="form-inline" method="POST" action="/">
+                    <button class="btn btn-outline-danger" type="submit">DB zurücksetzen</button>
+                </form>
             </div>
         </nav>
     </header>
     <main>
-        <div class="container mt-3">
+        <!-- Not using class="container mt-3" since content jumps around -->
+        <div style="margin: 0% 1%">
             {@render children()}
         </div>
     </main>

@@ -20,3 +20,13 @@ a {
     overflow-y: auto;
     overflow-x: hidden;
 }
+
+/* overwriting bootstrap default values */
+.active {
+    background-color: lightgray;
+    border-radius: 25px;
+}
+
+.nav-item {
+    border-radius: 25px;
+}

@@ -3,7 +3,8 @@
 </script>
 
 <div class="card" style="width: 18rem;">
-    <img src={vehicle.image} class="card-img-top" alt="Vehicle" style="width: 100%; height: auto;" />
+<!--    <img src={vehicle.image}  class="card-img-top" alt="Vehicle" style="width: 100%; height: auto;" />-->
+    <img src={vehicle.image}   alt="Vehicle"  />
     <div class="card-body">
         <h5 class="card-title"><b><a href={"/vehicles/" + vehicle._id}>{vehicle.brand} {vehicle.model}</a></b></h5>
     </div>

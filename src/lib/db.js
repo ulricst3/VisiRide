@@ -1,5 +1,6 @@
 import { MongoClient, ObjectId } from "mongodb"; // See https://www.mongodb.com/docs/drivers/node/current/quick-start/
 import { DB_URI } from "$env/static/private";
+import fs from "fs/promises";
 
 const client = new MongoClient(DB_URI);
 
@@ -291,6 +292,38 @@ async function deleteAppointment(id) {
   return null;
 }
 
+async function clearAllCollections() {
+  console.log(">>> db.js -> clearAllCollections")
+  try {
+    // List of all collections
+    const collections = await db.listCollections().toArray();
+
+    // Clear each collection
+    for (const { name } of collections) {
+      await db.collection(name).deleteMany();
+    }
+  } catch (error) {
+    // TODO: errorhandling
+    console.log(error.message);
+  }
+}
+
+async function insertDataFromJSON() {
+  console.log(">>> db.js -> insertDataFromJSON")
+
+  const users = await loadJSON("./static/data/Users.json")
+  await db.collection("User").insertMany(users);
+
+  const vehicles = await loadJSON("./static/data/Vehicles.json")
+  await db.collection("Vehicle").insertMany(vehicles);
+
+}
+
+async function loadJSON(filePath) {
+  const raw = await fs.readFile(filePath, "UTF-8");
+  return JSON.parse(raw);
+}
+
 // export all functions so that they can be used in other files
 export default {
   getUsers,
@@ -302,5 +335,7 @@ export default {
   getVehicle,
   getAppointments,
   createAppointment,
-  deleteAppointment
+  deleteAppointment,
+  clearAllCollections,
+  insertDataFromJSON
 };
