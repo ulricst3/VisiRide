@@ -4,9 +4,12 @@ import db from "$lib/db.js";
 
 export async function prepareUserFormResponse(request, isCreation) {
     const formData = await request.formData();
+
+    console.log(">>> FormData: " + JSON.stringify(Object.fromEntries(formData.entries())));
+
     let user = {
         _id: formData.get("_id") || undefined,
-        avatar: "/images/user_placeholder.png",
+        avatar: formData.get("avatar") || "/images/user_placeholder.png",
         firstName: formData.get("firstName").trim(),
         lastName: formData.get("lastName").trim(),
         birthday: formData.get("birthday").trim(),

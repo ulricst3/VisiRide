@@ -22,18 +22,17 @@
     <!-- Show ID & avatar only, if profile is being edited. -->
     {#if !isCreation}
         <!-- ID, non-editable (only shown for update mode) -->
-        <!--{#if user._id}-->
             <div class="col-md-6">
                 <label for="inputId" class="form-label">Id</label>
                 <input name="_id" type="hidden" class="form-control" bind:value={user._id}>
-                <input type="text" class="form-control" id="inputId" bind:value={user._id} disabled>
+                <input type="text" class="form-control" id="inputId" value={user._id} disabled>
             </div>
-        <!--{/if}-->
 
-        <!-- Avatar location, non-editable -->
+        <!-- Avatar location, non-editable (only shown for update mode) -->
         <div class="col-md-6">
             <label for="inputAvatar" class="form-label">Avatar</label>
-            <input type="text" class="form-control" id="inputAvatar" bind:value={user.avatar} disabled>
+            <input name="avatar" type="hidden" class="form-control" id="inputAvatar" bind:value={user.avatar}>
+            <input  type="text" class="form-control" id="inputAvatar" value={user.avatar} disabled>
         </div>
     {/if}
 
