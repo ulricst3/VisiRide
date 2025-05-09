@@ -1,7 +1,8 @@
 <script>
     import dateFormat from "dateformat";
-    import { onMount } from "svelte";
-    let { data } = $props();
+    import {onMount} from "svelte";
+
+    let {data} = $props();
 
     let selectedUser = $state();
     let modalElement;
@@ -67,12 +68,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p>Bist du sicher, dass du {selectedUser?.firstName} {selectedUser?.lastName} wirklich löschen möchtest?</p>
+                <p>Bist du sicher, dass du <strong>{selectedUser?.firstName} {selectedUser?.lastName}</strong> wirklich
+                    löschen möchtest?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Abbrechen</button>
                 <form id="delete-form" method="POST" action="?/delete">
-                    <input id="delete-id-input" type="hidden" name="id" value={selectedUser?._id} />
+                    <input id="delete-id-input" type="hidden" name="id" value={selectedUser?._id}/>
                     <button type="submit" class="btn btn-danger">Löschen</button>
                 </form>
             </div>
