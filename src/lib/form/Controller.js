@@ -14,8 +14,6 @@ export async function prepareUserFormResponse(request, isCreation) {
     }
 
     const errors = validateUserForm(user);
-
-    console.log(">>> Object.keys(errors): " + Object.keys(errors));
     if (Object.keys(errors).length) {
         return fail(400, {user, errors})
     }

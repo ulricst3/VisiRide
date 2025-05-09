@@ -12,4 +12,5 @@ Zusätzlich installiert wurde:
 `npm install mongodb`
 `npm install dateformat`
 `npm i -D @sveltejs/adapter-netlify`
+`npm install colors`
 
