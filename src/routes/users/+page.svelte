@@ -4,17 +4,16 @@
     let { data } = $props();
 
     let selectedUser = $state();
-    let modalElem;
+    let modalElement;
     let bsModal;
 
     // Executed after DOM generation
     onMount(() => {
         // Create Bootstrap modal i.e. make use of Bootstrap JS CDN --> see docs: https://getbootstrap.com/docs/5.3/components/modal/
-        bsModal = new window.bootstrap.Modal(modalElem);
+        bsModal = new window.bootstrap.Modal(modalElement);
     });
 
     function openModal(user) {
-        console.log("Test")
         selectedUser = user;
         bsModal.show();
     }
@@ -59,8 +58,8 @@
     </table>
 </div>
 
-<!-- Ein einziges Formular im Modal -->
-<div class="modal fade" tabindex="-1" role="dialog" bind:this={modalElem}>
+<!-- Modal -->
+<div class="modal fade" tabindex="-1" role="dialog" bind:this={modalElement}>
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
