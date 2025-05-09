@@ -1,6 +1,7 @@
 import { MongoClient, ObjectId } from "mongodb"; // See https://www.mongodb.com/docs/drivers/node/current/quick-start/
 import { DB_URI } from "$env/static/private";
 import fs from "fs/promises";
+import { join } from "path";
 
 const client = new MongoClient(DB_URI);
 
@@ -311,10 +312,10 @@ async function clearAllCollections() {
 async function insertDataFromJSON() {
   console.log(">>> db.js -> insertDataFromJSON")
 
-  const users = await loadJSON("./static/data/Users.json")
+  const users = await loadJSON(join(process.cwd(), "static", "data", "Users.json"));
   await db.collection("User").insertMany(users);
 
-  const vehicles = await loadJSON("./static/data/Vehicles.json")
+  const vehicles = await loadJSON(join(process.cwd(), "static", "data", "Vehicles.json"));
   await db.collection("Vehicle").insertMany(vehicles);
 
 }
