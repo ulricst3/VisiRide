@@ -9,7 +9,7 @@
     // Basically load all data.user data into user and replace existing values with form.data.user if key exist.
     const user = {
         ...data.user, // 1. Spread every own property from `data.user` into this object
-        ...(form?.data?.user) // 2. If `form.data.user` exists, spread its properties here
+        ...form?.user // 2. If `form.data.user` exists, spread its properties here
     };
 </script>
 
@@ -41,8 +41,8 @@
     <div class="col-md-6">
         <label for="inputFirstName" class="form-label" aria-label="Vorname">Vorname</label>
         <input name="firstName" type="text" class="form-control" id="inputFirstName" bind:value={user.firstName} required>
-        {#if form?.validationErrors.has("firstName")}
-            <p class="error-text">Der Vorname muss mindestens 3 Zeichen lang sein</p>
+        {#if form?.errors?.firstName}
+            <p class="error-text">{form.errors.firstName}</p>
         {/if}
     </div>
 
@@ -50,8 +50,8 @@
     <div class="col-md-6">
         <label for="inputLastName" class="form-label" aria-label="Nachname">Nachname</label>
         <input name="lastName" type="text" class="form-control" id="inputLastName" bind:value={user.lastName} required>
-        {#if form?.validationErrors.has("lastName")}
-            <p class="error-text">Der Nachname muss mindestens 3 Zeichen lang sein</p>
+        {#if form?.errors?.lastName}
+            <p class="error-text">{form.errors.lastName}</p>
         {/if}
     </div>
 
@@ -59,8 +59,8 @@
     <div class="col-md-6">
         <label for="inputBirthday" class="form-label">Geburtstag</label>
         <input name="birthday" type="date" class="form-control" id="inputBirthday" bind:value={user.birthday} required>
-        {#if form?.validationErrors.has("birthday")}
-            <p class="error-text">Bitte gib ein gültiges Geburtsdatum in der Vergangenheit an</p>
+        {#if form?.errors?.birthday}
+            <p class="error-text">{form.errors.birthday}</p>
         {/if}
     </div>
 
@@ -82,13 +82,7 @@
 <br />
 
 {#if form?.success}
-    {#if isCreation}
-        <div class="alert alert-success" role="alert">
-            Benutzer wurde erfolgreich gespeichert!
-        </div>
-    {:else}
-        <div class="alert alert-success" role="alert">
-            Benutzer wurde erfolgreich aktualisiert!
-        </div>
-    {/if}
+    <div class="alert alert-success" role="alert">
+        {isCreation ? "Benutzer wurde erfolgreich gespeichert!" : "Benutzer wurde erfolgreich aktualisiert!"}
+    </div>
 {/if}

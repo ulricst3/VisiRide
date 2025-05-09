@@ -1,13 +1,16 @@
 export function validateUserForm(user) {
-    let validationErrors = new Map();
+    let errors = {};
     if (user.firstName.length < 3) {
-        validationErrors.set("firstName", user.firstName);
+        errors.firstName = 'Der Vorname muss mindestens 3 Zeichen lang sein.';
+        // validationErrors.set("firstName", user.firstName);
     }
     if (user.lastName.length < 3) {
-        validationErrors.set("lastName", user.lastName);
+        errors.lastName = 'Der Nachname muss mindestens 3 Zeichen lang sein.';
+        // validationErrors.set("lastName", user.lastName);
     }
     if (user.birthday.length === 0 || new Date(user.birthday) >= new Date()) {
-        validationErrors.set("birthday", user.birthday);
+        errors.birthday = 'Bitte gib ein gültiges Geburtsdatum in der Vergangenheit an.';
+        // validationErrors.set("birthday", user.birthday);
     }
-    return validationErrors;
+    return errors;
 }

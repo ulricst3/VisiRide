@@ -1,25 +1,29 @@
-import {validateUserForm} from "$lib/form/Validator.js";
+import { fail } from "@sveltejs/kit";
+import { validateUserForm } from "$lib/form/Validator.js";
 import db from "$lib/db.js";
 
 export async function prepareUserFormResponse(request, isCreation) {
-    const data = await request.formData();
+    const formData = await request.formData();
     let user = {
-        _id: data.get("_id"),
+        _id: formData.get("_id") || undefined,
         avatar: "/images/user_placeholder.png",
-        firstName: data.get("firstName").trim(),
-        lastName: data.get("lastName").trim(),
-        birthday: data.get("birthday").trim(),
-        role: data.get("role").trim()
+        firstName: formData.get("firstName").trim(),
+        lastName: formData.get("lastName").trim(),
+        birthday: formData.get("birthday").trim(),
+        role: formData.get("role").trim()
     }
-    let validationErrors = validateUserForm(user)
-    let success = false;
-    if (validationErrors.size === 0) {
-        if (isCreation) {
-            await db.createUser(user)
-        } else {
-            await db.updateUser(user);
-        }
-        success = true;
+
+    const errors = validateUserForm(user);
+
+    console.log(">>> Object.keys(errors): " + Object.keys(errors));
+    if (Object.keys(errors).length) {
+        return fail(400, {user, errors})
+    }
+
+    if (isCreation) {
+        await db.createUser(user)
+    } else {
+        await db.updateUser(user);
     }
 
     // Transform user._id from object to string
@@ -27,8 +31,6 @@ export async function prepareUserFormResponse(request, isCreation) {
         user._id = user._id.toString();
     }
     return {
-        data: { user },
-        validationErrors: validationErrors,
-        success: success
+        success: true, user
     }
 }
