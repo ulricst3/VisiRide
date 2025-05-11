@@ -39,12 +39,12 @@ a {
     padding: 0;
     box-sizing: border-box;
 }
-*/
+
 body {
     background-color: white;
     color: white;
 }
-/*
+
 a {
     color: var(--color-accent);
     text-decoration: none;
