@@ -22,9 +22,12 @@ a {
 }
 
 /* ========== Overwriting Bootstrap default values ========== */
-/* */
+.navbar {
+    background-color: #EEEEEE !important;
+    border-radius: 25px;
+}
 .navbar-nav .active {
-    background-color: lightgray;
+    background-color: #bcbcbc;
     border-radius: 25px;
 }
 
@@ -32,185 +35,15 @@ a {
     border-radius: 25px;
 }
 
-/* Global Reset & Base */
 /*
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    background-color: white;
-    color: white;
+    background-color: #f1f2f6;
 }
-
-a {
-    color: var(--color-accent);
-    text-decoration: none;
+th, td {
+    background-color: #f1f2f6 !important;
 }
-a:hover,
-a:focus {
-    text-decoration: underline;
-}
-*/
-/* Navbar */
-/*
 .navbar {
-    background-color: var(--color-primary);
-    padding: 0.75rem 1.5rem;
+    background-color: #dfe4ea !important;
+    border-radius: 25px;
 }
-.navbar .navbar-brand {
-    color: var(--color-text);
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-.navbar .nav-link {
-    color: var(--color-neutral);
-    margin-right: 1rem;
-    transition: color 0.2s ease;
-}
-.navbar .nav-link:hover {
-    color: var(--color-text);
-}
-.navbar .nav-link.active {
-    background-color: var(--color-accent);
-    color: var(--color-primary) !important;
-    border-radius: 0.375rem;
-    padding: 0.5rem 1rem;
-}
-*/
-/* Breadcrumb */
-/*
-.breadcrumb {
-    background-color: transparent;
-    padding: 0.5rem 1rem;
-}
-.breadcrumb-item + .breadcrumb-item::before {
-    color: var(--color-neutral);
-}
-.breadcrumb-item a {
-    color: var(--color-accent);
-}
-.breadcrumb-item.active {
-    color: var(--color-primary);
-    font-weight: 600;
-}
-*/
-/* Buttons */
-/*
-.btn {
-    font-weight: 600;
-    border-radius: 0.375rem;
-    padding: 0.5rem 1rem;
-    transition: background-color 0.2s ease;
-}
-.btn-primary {
-    background-color: var(--color-accent);
-    color: var(--color-primary);
-    border: 1px solid var(--color-accent);
-}
-.btn-primary:hover {
-    background-color: var(--color-neutral);
-    color: var(--color-primary);
-}
-.btn-danger {
-    background-color: var(--color-error);
-    color: var(--color-text);
-    border: 1px solid var(--color-error);
-}
-.btn-danger:hover {
-    background-color: var(--color-warning);
-    color: var(--color-primary);
-}
-*/
-/* Tables */
-/*
-.table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 1rem;
-}
-.table th,
-.table td {
-    padding: 0.75rem;
-    text-align: left;
-    border-bottom: 1px solid var(--color-neutral);
-}
-.table thead th {
-    background-color: var(--color-secondary);
-    color: var(--color-text);
-    font-weight: 600;
-}
-.table tbody tr:hover {
-    background-color: var(--color-neutral);
-}
-*/
-/* Cards */
-/*
-.card {
-    background-color: var(--color-text);
-    border: 1px solid var(--color-neutral);
-    border-radius: 0.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 1.5rem;
-}
-.card-header {
-    background-color: var(--color-secondary);
-    color: var(--color-text);
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid var(--color-neutral);
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-}
-.card-body {
-    padding: 1rem;
-    color: var(--color-primary);
-}
-*/
-/* Forms & Inputs */
-/*
-.form-control {
-    display: block;
-    width: 100%;
-    padding: 0.5rem 0.75rem;
-    color: var(--color-primary);
-    background-color: var(--color-text);
-    border: 1px solid var(--color-neutral);
-    border-radius: 0.375rem;
-    transition: border-color 0.2s ease;
-}
-.form-control:focus {
-    border-color: var(--color-accent);
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(192, 161, 107, 0.25);
-}
-*/
-/* Alerts */
-/*
-.alert {
-    padding: 0.75rem 1rem;
-    border-radius: 0.375rem;
-}
-.alert-success {
-    background-color: var(--color-success);
-    color: var(--color-text);
-}
-.alert-warning {
-    background-color: var(--color-warning);
-    color: var(--color-text);
-}
-.alert-danger {
-    background-color: var(--color-error);
-    color: var(--color-text);
-}
-*/
-/* Utility Classes */
-/*
-.text-accent { color: var(--color-accent) !important; }
-.text-neutral { color: var(--color-neutral) !important; }
-.bg-primary { background-color: var(--color-primary) !important; }
-.bg-secondary { background-color: var(--color-secondary) !important; }
-
  */
-
