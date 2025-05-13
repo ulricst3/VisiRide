@@ -31,10 +31,10 @@
   </div>
 </div>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
+<div class="row row-cols-1 row-cols-md-3 g-4" style="margin-top: 5rem;">
   <div class="col">
     <div class="card">
-      <div class="card-body">
+      <div class="card-body text-center">
         <h5 class="card-title">Registrierte Benutzer</h5>
         <h1>{Math.floor(userCount.current)}</h1>
         <div class="d-grid gap-2">
@@ -46,7 +46,7 @@
   </div>
   <div class="col">
     <div class="card">
-      <div class="card-body">
+      <div class="card-body text-center">
         <h5 class="card-title">Hinterlegte Fahrzeuge</h5>
         <h1>{Math.floor(vehicleCount.current)}</h1>
         <div class="d-grid gap-2">
@@ -57,7 +57,7 @@
   </div>
   <div class="col">
     <div class="card">
-      <div class="card-body">
+      <div class="card-body text-center">
         <h5 class="card-title">Geplante Besichtigungstermine</h5>
         <h1>{Math.floor(appointmentCount.current)}</h1>
         <div class="d-grid gap-2">
