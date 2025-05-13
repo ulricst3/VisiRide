@@ -14,7 +14,7 @@ const db = client.db("VisiRideDB"); // select database
 
 // Get all users
 async function getUsers() {
-  console.log(">>> db.js -> getUsers")
+  console.log(">>> db.js -> getUsers");
   let users = [];
   try {
     const collection = db.collection("User");
@@ -57,7 +57,7 @@ async function getUsers() {
 
 // Get user by id
 async function getUser(id) {
-  console.log(">>> db.js -> getUser")
+  console.log(">>> db.js -> getUser");
   let user = null;
   try {
     const collection = db.collection("User");
@@ -79,7 +79,7 @@ async function getUser(id) {
 
 // create user
 async function createUser(user) {
-  console.log(">>> db.js -> createUser")
+  console.log(">>> db.js -> createUser");
   try {
     const collection = db.collection("User");
     const result = await collection.insertOne(user);
@@ -94,7 +94,7 @@ async function createUser(user) {
 // Update user
 // returns: id of the updated user or null, if user could not be updated
 async function updateUser(user) {
-  console.log(">>> db.js -> updateUser")
+  console.log(">>> db.js -> updateUser");
   try {
     let id = user._id;
     delete user._id; // delete the _id from the object, because the _id cannot be updated
@@ -119,7 +119,7 @@ async function updateUser(user) {
 // delete user by id
 // returns: id of the deleted user or null, if user could not be deleted
 async function deleteUser(id) {
-  console.log(">>> db.js -> deleteUser")
+  console.log(">>> db.js -> deleteUser");
   try {
     const collection = db.collection("User");
     const query = { _id: new ObjectId(id) }; // filter by id
@@ -144,7 +144,7 @@ async function deleteUser(id) {
 
 // Get all vehicles
 async function getVehicles() {
-  console.log(">>> db.js -> getVehicles")
+  console.log(">>> db.js -> getVehicles");
   let vehicles = [];
   try {
     const collection = db.collection("Vehicle");
@@ -187,7 +187,7 @@ async function getVehicles() {
 
 // Get vehicle by id
 async function getVehicle(id) {
-  console.log(">>> db.js -> getVehicle")
+  console.log(">>> db.js -> getVehicle");
   let vehicle = null;
   try {
     const collection = db.collection("Vehicle");
@@ -213,7 +213,7 @@ async function getVehicle(id) {
 
 // Get all appointments
 async function getAppointments() {
-  console.log(">>> db.js -> getAppointments")
+  console.log(">>> db.js -> getAppointments");
   let appointments = [];
   try {
     const collection = db.collection("Appointment");
@@ -259,7 +259,7 @@ async function getAppointments() {
 
 // create appointment
 async function createAppointment(appointment) {
-  console.log(">>> db.js -> createAppointment")
+  console.log(">>> db.js -> createAppointment");
   try {
     const collection = db.collection("Appointment");
     const result = await collection.insertOne(appointment);
@@ -274,7 +274,7 @@ async function createAppointment(appointment) {
 // delete appointment by id
 // returns: id of the deleted appointment or null, if appointment could not be deleted
 async function deleteAppointment(id) {
-  console.log(">>> db.js -> deleteAppointment")
+  console.log(">>> db.js -> deleteAppointment");
   try {
     const collection = db.collection("Appointment");
     const query = { _id: new ObjectId(id) }; // filter by id
@@ -294,7 +294,7 @@ async function deleteAppointment(id) {
 }
 
 async function clearAllCollections() {
-  console.log(">>> db.js -> clearAllCollections")
+  console.log(">>> db.js -> clearAllCollections");
   try {
     // List of all collections
     const collections = await db.listCollections().toArray();
@@ -310,7 +310,7 @@ async function clearAllCollections() {
 }
 
 async function insertDataFromJSON() {
-  console.log(">>> db.js -> insertDataFromJSON")
+  console.log(">>> db.js -> insertDataFromJSON");
 
   const users = await loadJSON(join(process.cwd(), "static", "data", "Users.json"));
   await db.collection("User").insertMany(users);
@@ -323,6 +323,26 @@ async function insertDataFromJSON() {
 async function loadJSON(filePath) {
   const raw = await fs.readFile(filePath, "UTF-8");
   return JSON.parse(raw);
+}
+
+async function getHomeScreenCounts() {
+  console.log(">>> db.js -> getHomeScreenCounts");
+  const homeScreenCounts = {};
+  let total = 0;
+
+  try {
+    const collections = ["User", "Appointment", "Vehicle"];
+    for (const name of collections) {
+      const count = await db.collection(name).countDocuments();
+      homeScreenCounts[name] = count;
+      total += count;
+    }
+    homeScreenCounts.All = total;
+  } catch (error) {
+    // TODO: errorhandling
+    console.log(error.message);
+  }
+  return homeScreenCounts;
 }
 
 // export all functions so that they can be used in other files
@@ -338,5 +358,6 @@ export default {
   createAppointment,
   deleteAppointment,
   clearAllCollections,
-  insertDataFromJSON
+  insertDataFromJSON,
+  getHomeScreenCounts
 };
