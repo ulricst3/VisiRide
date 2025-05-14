@@ -5,8 +5,6 @@ import db from "$lib/db.js";
 export async function prepareUserFormResponse(request, isCreation) {
     const formData = await request.formData();
 
-    console.log(">>> FormData: " + JSON.stringify(Object.fromEntries(formData.entries())));
-
     let user = {
         _id: formData.get("_id") || undefined,
         avatar: formData.get("avatar") || "/images/user_placeholder.png",
