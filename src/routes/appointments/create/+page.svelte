@@ -80,9 +80,8 @@
             <img src={vehicleImage} alt="vehicle" />
         </div>
     </div>
-    <!-- Role -->
     <div class="col-md-6">
-        <label for="inputUser" class="form-label">Benutzer</label>
+        <label for="inputUser" class="form-label">Benutzer<span class="red-text">*</span></label>
         <select name="user" id="inputUser" class="form-select" bind:value={data.userId} onchange={onUserChange} required>
             {#each data.users as user}
                 <option value={user._id}>{user.firstName} {user.lastName}</option>
@@ -90,7 +89,7 @@
         </select>
     </div>
     <div class="col-md-6">
-        <label for="inputVehicle" class="form-label">Fahrzeug</label>
+        <label for="inputVehicle" class="form-label">Fahrzeug<span class="red-text">*</span></label>
         <select name="vehicle" id="inputVehicle" class="form-select" bind:value={data.vehicleId} onchange={onVehicleChange} required>
             {#each data.vehicles as vehicle}
                 <option value={vehicle._id}>{vehicle.brand} {vehicle.model}</option>
@@ -98,7 +97,7 @@
         </select>
     </div>
     <div class="col-md-6">
-        <label for="inputViewingDateTime" class="form-label">Besichtigungstermin</label>
+        <label for="inputViewingDateTime" class="form-label">Besichtigungstermin<span class="red-text">*</span></label>
         <input name="viewingDateTime" type="datetime-local" class="form-control" id="inputViewingDateTime" bind:value={data.viewingDateTime} onchange={onDateTimeChange} required>
         <small class="form-text text-muted">Wettervorhersage bis 15 Tage im Voraus</small>
         {#if error}
@@ -139,7 +138,7 @@
         {/if}
     </div>
     <div class="col-md-6">
-        <label for="inputMessage" class="form-label">Nachricht</label>
+        <label for="inputMessage" class="form-label">Nachricht<span class="red-text">*</span></label>
         <textarea name="message" class="form-control" id="inputMessage" rows="5" bind:value={data.message} required></textarea>
     </div>
     <div class="col-12">

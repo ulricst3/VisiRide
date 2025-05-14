@@ -38,34 +38,34 @@
 
     <!-- FirstName -->
     <div class="col-md-6">
-        <label for="inputFirstName" class="form-label" aria-label="Vorname">Vorname</label>
+        <label for="inputFirstName" class="form-label" aria-label="Vorname">Vorname<span class="red-text">*</span></label>
         <input name="firstName" type="text" class="form-control" id="inputFirstName" bind:value={user.firstName} required>
         {#if form?.errors?.firstName}
-            <p class="error-text">{form.errors.firstName}</p>
+            <p class="red-text">{form.errors.firstName}</p>
         {/if}
     </div>
 
     <!-- LastName -->
     <div class="col-md-6">
-        <label for="inputLastName" class="form-label" aria-label="Nachname">Nachname</label>
+        <label for="inputLastName" class="form-label" aria-label="Nachname">Nachname<span class="red-text">*</span></label>
         <input name="lastName" type="text" class="form-control" id="inputLastName" bind:value={user.lastName} required>
         {#if form?.errors?.lastName}
-            <p class="error-text">{form.errors.lastName}</p>
+            <p class="red-text">{form.errors.lastName}</p>
         {/if}
     </div>
 
     <!-- Birthday -->
     <div class="col-md-6">
-        <label for="inputBirthday" class="form-label">Geburtstag</label>
+        <label for="inputBirthday" class="form-label">Geburtstag<span class="red-text">*</span></label>
         <input name="birthday" type="date" class="form-control" id="inputBirthday" bind:value={user.birthday} required>
         {#if form?.errors?.birthday}
-            <p class="error-text">{form.errors.birthday}</p>
+            <p class="red-text">{form.errors.birthday}</p>
         {/if}
     </div>
 
     <!-- Role -->
     <div class="col-md-6">
-        <label for="inputRole" class="form-label">Rolle</label>
+        <label for="inputRole" class="form-label">Rolle<span class="red-text">*</span></label>
         <select name="role" id="inputRole" class="form-select" bind:value={user.role} required>
             {#each options as option}
                 <option value={option}>{roleMapping[option]}</option>
