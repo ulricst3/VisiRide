@@ -20,6 +20,7 @@
     }
 </script>
 
+<title>Benutzer</title>
 <h1>Benutzer</h1>
 <a href="/users/create" class="btn btn-success">Benutzer hinzufügen <i class="bi bi-person-add"></i></a>
 <div class="page-size">

@@ -3,8 +3,8 @@
     let { data } = $props();
 </script>
 
+<title>Fahrzeuge</title>
 <h1>Fahrzeuge</h1>
-
 <div class="page-size container mt-3">
     <div class="row row-cols-4">
         {#each data.vehicles as vehicle}

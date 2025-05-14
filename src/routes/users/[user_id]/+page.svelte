@@ -4,4 +4,5 @@
     let isCreation = false;
 </script>
 
+<title>Benutzer bearbeiten</title>
 <UserForm {data} {form} {isCreation}/>

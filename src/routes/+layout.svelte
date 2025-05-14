@@ -20,7 +20,7 @@
                     </ul>
                 </div>
                 <form class="form-inline" method="POST" action="/">
-                    <button class="btn btn-outline-danger" type="submit">DB zurücksetzen</button>
+                    <button class="btn btn-outline-danger" type="submit">Datenbank zurücksetzen</button>
                 </form>
             </div>
         </nav>

@@ -3,6 +3,7 @@
     let { data } = $props();
 </script>
 
+<title>Fahrzeug {data.vehicle._id}</title>
 <div class="card mx-auto" style="width: 25rem;">
     <img src={data.vehicle.image} class="card-img-top" alt="Vehicle" style="width: 100%; height: auto;" />
     <div class="card-body">

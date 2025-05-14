@@ -17,8 +17,8 @@
   });
 </script>
 
+<title>Home</title>
 <h1>Willkommen in der Admin-Ansicht von VisiRide!</h1>
-
 <div style="margin-top: 5rem;">
 <div class="row justify-content-center mb-4">
   <div class="col-12 col-md-4">

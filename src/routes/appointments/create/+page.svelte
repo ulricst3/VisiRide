@@ -13,6 +13,7 @@
     }
 </script>
 
+<title>Neuen Besichtigungstermin</title>
 <h1>Neuen Besichtigungstermin erstellen</h1>
 <form class="row g-3" method="POST" action="?/create">
     <div class="col-md-6">
@@ -47,7 +48,7 @@
         <input name="viewingDateTime" type="datetime-local" class="form-control" id="inputViewingDateTime" bind:value={data.viewingDateTime} required>
     </div>
     <div class="col-md-6">
-        <label for="inputMessage" class="form-label">Besichtigungstermin</label>
+        <label for="inputMessage" class="form-label">Nachricht</label>
         <textarea name="message" class="form-control" id="inputMessage" rows="5" bind:value={data.message} required></textarea>
     </div>
     <div class="col-12">

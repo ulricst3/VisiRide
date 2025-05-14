@@ -2,6 +2,13 @@
 a {
     text-decoration: none;
 }
+body {
+    background-image: linear-gradient(to top, #FFFFFF 0%,  #d8f3dc 100%);
+    background-repeat: no-repeat;
+}
+th, td {
+    background-color: #b7e4c7 !important;
+}
 
 /* classes */
 .narrow-th {
@@ -23,27 +30,22 @@ a {
 
 /* ========== Overwriting Bootstrap default values ========== */
 .navbar {
-    background-color: #EEEEEE !important;
+    background-color: #b7e4c7 !important;
     border-radius: 25px;
 }
 .navbar-nav .active {
-    background-color: #bcbcbc;
+    background-color: #74c69d;
     border-radius: 25px;
 }
-
 .nav-item {
     border-radius: 25px;
 }
-
-/*
-body {
-    background-color: #f1f2f6;
+.card-body {
+    background-color: #b7e4c7;
 }
-th, td {
-    background-color: #f1f2f6 !important;
+.list-group-item {
+    background-color: #b7e4c7 !important;
 }
-.navbar {
-    background-color: #dfe4ea !important;
-    border-radius: 25px;
+.card-footer {
+    background-color: #d8f3dc;
 }
- */

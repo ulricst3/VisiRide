@@ -20,6 +20,7 @@
     }
 </script>
 
+<title>Besichtigungstermine</title>
 <h1>Besichtigungstermine</h1>
 <a href="/appointments/create" class="btn btn-success">Besichtigungstermin hinzufügen <i
         class="bi bi-calendar-plus"></i></a>
