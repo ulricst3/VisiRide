@@ -2,14 +2,13 @@
 
 ## Diese Applikation wurde mit Svelte 5 im Runes Mode entwickelt.
 
-svelte-version: ^5.0.0
-vite-version: ^6.2.6
+Versionen:
 
-Der Runes-Mode wurde explizit in der Datei `svelte.config.js` unter den `compilerOptions` aktiviert.
+- svelte-version: `^5.0.0`
+- vite-version: `^6.2.6`
 
 Zusätzlich installiert wurde:
 
-`npm install mongodb`
-`npm install dateformat`
-`npm i -D @sveltejs/adapter-netlify`
-
+- `npm i mongodb`
+- `npm i dateformat`
+- `npm i -D @sveltejs/adapter-netlify`
