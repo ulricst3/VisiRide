@@ -1,11 +1,12 @@
 <script>
     import dateFormat from "dateformat";
-    let { data } = $props();
+
+    let {data} = $props();
 </script>
 
 <title>Fahrzeug {data.vehicle._id}</title>
-<div class="card mx-auto" style="width: 25rem;">
-    <img src={data.vehicle.image} class="card-img-top" alt="Vehicle" style="width: 100%; height: auto;" />
+<div class="card mx-auto fixed-width-25">
+    <img src={data.vehicle.image} class="card-img-top full-width-auto-height" alt="Vehicle"/>
     <div class="card-body">
         <h5 class="card-title">{data.vehicle.brand} {data.vehicle.model}</h5>
         <table class="table table-striped">
@@ -16,11 +17,11 @@
             </tr>
             <tr>
                 <td>Preis</td>
-                <td>CHF {data.vehicle.price.toLocaleString('de-CH')}.-</td>
+                <td>CHF {data.vehicle.price.toLocaleString("de-CH")}.-</td>
             </tr>
             <tr>
                 <td>Kilometerstand</td>
-                <td>{data.vehicle.mileage.toLocaleString('de-CH')} km</td>
+                <td>{data.vehicle.mileage.toLocaleString("de-CH")} km</td>
             </tr>
             <tr>
                 <td>Getriebe</td>

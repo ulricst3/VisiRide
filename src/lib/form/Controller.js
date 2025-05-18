@@ -1,5 +1,5 @@
-import { fail } from "@sveltejs/kit";
-import { validateUserForm } from "$lib/form/Validator.js";
+import {fail} from "@sveltejs/kit";
+import {validateUserForm} from "$lib/form/Validator.js";
 import db from "$lib/db.js";
 
 export async function prepareUserFormResponse(request, isCreation) {
@@ -7,7 +7,7 @@ export async function prepareUserFormResponse(request, isCreation) {
 
     let user = {
         _id: formData.get("_id"),
-        avatar: formData.get("avatar") || "/images/user_placeholder.png",
+        avatar: formData.get("avatar") || "/images/user_placeholder.png", // Default save-value
         firstName: formData.get("firstName").trim(),
         lastName: formData.get("lastName").trim(),
         birthday: formData.get("birthday").trim(),

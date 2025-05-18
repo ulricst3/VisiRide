@@ -1,6 +1,7 @@
 <script>
-    import { page } from "$app/state"
-    let { children } = $props();
+    import {page} from "$app/state"
+
+    const {children} = $props();
 </script>
 
 <div class="container mt-3">

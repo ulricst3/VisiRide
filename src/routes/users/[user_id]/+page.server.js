@@ -8,7 +8,7 @@ export async function load({params}) {
 }
 
 export const actions = {
-    update: async ({ request }) => {
+    update: async ({request}) => {
         return prepareUserFormResponse(request, false);
     }
 };

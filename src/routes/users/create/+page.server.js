@@ -1,7 +1,7 @@
 import {prepareUserFormResponse} from "$lib/form/Controller.js";
 
 // Load default values in order to load UserForm component.
-export async function load({ params }) {
+export async function load() {
     return {
         user: {
             _id: "Wird bei Speicherung automatisch generiert.",
@@ -11,7 +11,7 @@ export async function load({ params }) {
 }
 
 export const actions = {
-    create: async ({ request }) => {
+    create: async ({request}) => {
         return prepareUserFormResponse(request, true);
     }
 };

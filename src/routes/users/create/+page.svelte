@@ -1,7 +1,8 @@
 <script>
     import UserForm from "$lib/components/UserForm.svelte";
-    let { data, form } = $props();
-    let isCreation = true;
+
+    const {data, form} = $props();
+    const isCreation = true;
 </script>
 
 <title>Neuen Benutzer</title>

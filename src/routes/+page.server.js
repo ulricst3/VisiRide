@@ -7,10 +7,9 @@ export async function load() {
 }
 
 export const actions = {
-    default: async ({request}) => {
+    default: async () => {
         await db.clearAllCollections();
         await db.insertDataFromJSON();
-        return { reset: true };
+        return {reset: true};
     }
 };
-

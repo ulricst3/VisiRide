@@ -28,6 +28,27 @@ th, td {
     overflow-x: hidden;
 }
 
+.main-container {
+    margin: 1rem 5rem 0rem 5rem;
+}
+
+.inner-content {
+    margin: 0 1%;
+}
+
+.fixed-width-25 {
+    width: 25rem;
+}
+
+.full-width-auto-height {
+    width: 100%;
+    height: auto;
+}
+
+.fixed-width-18 {
+    width: 18rem;
+}
+
 /* ========== Overwriting Bootstrap default values ========== */
 .navbar {
     background-color: #b7e4c7 !important;

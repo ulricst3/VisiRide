@@ -1,9 +1,9 @@
 import db from "$lib/db.js";
-import { redirect } from "@sveltejs/kit"
-import { ObjectId } from 'mongodb';
+import {redirect} from "@sveltejs/kit"
+import {ObjectId} from "mongodb";
 
 // Load default values in order to load UserForm component.
-export async function load({ params }) {
+export async function load() {
     return {
         users: await db.getUsers(),
         vehicles: await db.getVehicles()
@@ -11,7 +11,7 @@ export async function load({ params }) {
 }
 
 export const actions = {
-    create: async ({ request }) => {
+    create: async ({request}) => {
         const data = await request.formData();
         let appointment = {
             userId: new ObjectId(data.get("user").trim()),

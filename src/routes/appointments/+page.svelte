@@ -2,7 +2,7 @@
     import dateFormat from "dateformat";
     import {onMount} from "svelte";
 
-    let {data} = $props();
+    const {data} = $props();
 
     let selectedAppointment = $state(null);
     let modalElement;

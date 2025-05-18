@@ -1,5 +1,5 @@
 <script>
-    let { data, form } = $props();
+    const {data, form} = $props();
 
     // Select first item in list as default
     let userAvatar = $state(data.users[0].avatar);
@@ -18,6 +18,7 @@
     function onUserChange(event) {
         userAvatar = data.users.find(u => u._id === event.target.value).avatar;
     }
+
     function onVehicleChange(event) {
         vehicleImage = data.vehicles.find(v => v._id === event.target.value).image;
     }
@@ -28,7 +29,7 @@
         const isoDateTime = new Date(event.target.value);
         // ISO format is yyyy-MM-ddTHH:mm:ss, so slice string at index 13 and add trailing :00,
         // so we have a usable string to check in the API response
-        const dateTime = isoDateTime.toISOString().slice(0,13) + ":00";
+        const dateTime = isoDateTime.toISOString().slice(0, 13) + ":00";
 
         // Build URL
         const params = new URLSearchParams({
@@ -62,7 +63,7 @@
             };
         } catch (e) {
             alert(e.message)
-            error.set("Wetterdaten konnten nicht geladen werden: " + e.message);
+            error.set("Wetterdaten konnten nicht geladen werden: " + e.message + ".");
         }
     }
 </script>
@@ -71,18 +72,19 @@
 <h1>Neuen Besichtigungstermin erstellen</h1>
 <form class="row g-3" method="POST" action="?/create">
     <div class="col-md-6">
-        <div class="card mx-auto" style="width: 18rem;">
-            <img src={userAvatar} alt="user" />
+        <div class="card mx-auto fixed-width-18">
+            <img src={userAvatar} alt="user"/>
         </div>
     </div>
     <div class="col-md-6">
-        <div class="card mx-auto" style="width: 18rem;">
-            <img src={vehicleImage} alt="vehicle" />
+        <div class="card mx-auto fixed-width-18">
+            <img src={vehicleImage} alt="vehicle"/>
         </div>
     </div>
     <div class="col-md-6">
         <label for="inputUser" class="form-label">Benutzer<span class="red-text">*</span></label>
-        <select name="user" id="inputUser" class="form-select" bind:value={data.userId} onchange={onUserChange} required>
+        <select name="user" id="inputUser" class="form-select" bind:value={data.userId} onchange={onUserChange}
+                required>
             {#each data.users as user}
                 <option value={user._id}>{user.firstName} {user.lastName}</option>
             {/each}
@@ -90,7 +92,8 @@
     </div>
     <div class="col-md-6">
         <label for="inputVehicle" class="form-label">Fahrzeug<span class="red-text">*</span></label>
-        <select name="vehicle" id="inputVehicle" class="form-select" bind:value={data.vehicleId} onchange={onVehicleChange} required>
+        <select name="vehicle" id="inputVehicle" class="form-select" bind:value={data.vehicleId}
+                onchange={onVehicleChange} required>
             {#each data.vehicles as vehicle}
                 <option value={vehicle._id}>{vehicle.brand} {vehicle.model}</option>
             {/each}
@@ -98,7 +101,8 @@
     </div>
     <div class="col-md-6">
         <label for="inputViewingDateTime" class="form-label">Termin<span class="red-text">*</span></label>
-        <input name="viewingDateTime" type="datetime-local" class="form-control" id="inputViewingDateTime" bind:value={data.viewingDateTime} onchange={onDateTimeChange} required>
+        <input name="viewingDateTime" type="datetime-local" class="form-control" id="inputViewingDateTime"
+               bind:value={data.viewingDateTime} onchange={onDateTimeChange} required>
         <small class="form-text text-muted">Wettervorhersage bis 15 Tage im Voraus</small>
         {#if error}
             <div class="alert alert-warning mt-3" role="alert">
@@ -139,7 +143,8 @@
     </div>
     <div class="col-md-6">
         <label for="inputMessage" class="form-label">Nachricht<span class="red-text">*</span></label>
-        <textarea name="message" class="form-control" id="inputMessage" rows="5" bind:value={data.message} required></textarea>
+        <textarea name="message" class="form-control" id="inputMessage" rows="5" bind:value={data.message}
+                  required></textarea>
     </div>
     <div class="col-12">
         <button type="submit" class="btn btn-primary">Speichern</button>

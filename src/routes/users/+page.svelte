@@ -2,7 +2,7 @@
     import dateFormat from "dateformat";
     import {onMount} from "svelte";
 
-    let {data} = $props();
+    const {data} = $props();
 
     let selectedUser = $state(null);
     let modalElement;
@@ -43,7 +43,7 @@
                 <td>{user.role === "buyer" ? "Käufer" : "Verkäufer"}</td>
                 <td>{user.appointmentCount}</td>
                 <td class="text-center border-start">
-                    <a href={'/users/' + user._id} class="btn btn-warning" title="Bearbeiten" aria-label="Bearbeiten">
+                    <a href={"/users/" + user._id} class="btn btn-warning" title="Bearbeiten" aria-label="Bearbeiten">
                         <i class="bi bi-pencil"></i>
                     </a>
                 </td>

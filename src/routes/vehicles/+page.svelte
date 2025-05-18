@@ -1,6 +1,7 @@
 <script>
     import VehicleCard from "$lib/components/VehicleCard.svelte";
-    let { data } = $props();
+
+    const {data} = $props();
 </script>
 
 <title>Fahrzeuge</title>
@@ -9,7 +10,7 @@
     <div class="row row-cols-4">
         {#each data.vehicles as vehicle}
             <div class="col mb-4 px-2">
-                <VehicleCard {vehicle} />
+                <VehicleCard {vehicle}/>
             </div>
         {/each}
     </div>
