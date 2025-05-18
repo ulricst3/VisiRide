@@ -4,7 +4,7 @@
 
     let {data} = $props();
 
-    let selectedAppointment = $state();
+    let selectedAppointment = $state(null);
     let modalElement;
     let bsModal;
 

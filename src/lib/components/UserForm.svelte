@@ -7,10 +7,10 @@
     }
     // Merge loaded data.user with form.data.user (if present), letting submitted values override defaults with spread operator (known from React)
     // Basically load all data.user data into user and replace existing values with form.data.user if key exist.
-    const user = {
+    const user = $state({
         ...data.user, // 1. Spread every own property from `data.user` into this object
         ...form?.user // 2. If `form.data.user` exists, spread its properties here
-    };
+    });
 </script>
 
 <form class="row g-3" method="POST" action={isCreation ? "?/create" : "?/update"}>
