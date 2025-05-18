@@ -31,7 +31,7 @@
             <th scope="col">Id</th>
             <th scope="col">Vor- und Nachname</th>
             <th scope="col">Marke und Modell</th>
-            <th scope="col">Besichtigungstermin</th>
+            <th scope="col">Termin</th>
             <th scope="col">Nachricht</th>
             <th scope="col" class="narrow-th border-start">Löschen</th>
         </tr>

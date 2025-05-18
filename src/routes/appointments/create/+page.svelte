@@ -97,7 +97,7 @@
         </select>
     </div>
     <div class="col-md-6">
-        <label for="inputViewingDateTime" class="form-label">Besichtigungstermin<span class="red-text">*</span></label>
+        <label for="inputViewingDateTime" class="form-label">Termin<span class="red-text">*</span></label>
         <input name="viewingDateTime" type="datetime-local" class="form-control" id="inputViewingDateTime" bind:value={data.viewingDateTime} onchange={onDateTimeChange} required>
         <small class="form-text text-muted">Wettervorhersage bis 15 Tage im Voraus</small>
         {#if error}
